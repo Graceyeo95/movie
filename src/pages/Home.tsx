@@ -1,5 +1,10 @@
 import React from 'react';
+import { BannerHome } from '../components/BannerHome';
 
 export const Home = () => {
-  return <div>Home</div>;
+  return (
+    <div>
+      <BannerHome />
+    </div>
+  );
 };

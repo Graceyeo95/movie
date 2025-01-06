@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from '../assets/movie-logo.png';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { IoSearchOutline } from 'react-icons/io5';
 
 const navItems = [
   { label: 'Home', path: '/' },
@@ -10,6 +11,15 @@ const navItems = [
 ];
 
 export const Header = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (searchTerm) {
+      navigate(`/search?q=${searchTerm}`);
+    }
+  }, [searchTerm]);
+
   return (
     <header className='fixed w-full top-0 bg-white'>
       <div className='mx-auto py-4 px-10 flex items-center justify-between'>
@@ -28,6 +38,21 @@ export const Header = () => {
             </NavLink>
           ))}
         </nav>
+
+        <div className='flex items-center gap-5'>
+          <form className='flex items-center gap-x-3'>
+            <input
+              type='text'
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder='Search here...'
+              className='bg-transparent text-black w-[300px] px-4 py-1 outline-none border-[1px] rounded-lg border-neutral-400 text-[18px]'
+            />
+            <button className='text-2xl text-black'>
+              <IoSearchOutline />
+            </button>
+          </form>
+        </div>
       </div>
     </header>
   );

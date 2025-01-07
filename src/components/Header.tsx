@@ -28,7 +28,7 @@ export const Header = () => {
   };
 
   return (
-    <header className='fixed w-full top-0 bg-white'>
+    <header className='fixed w-full top-0 bg-white z-[100]'>
       <div className='mx-auto py-4 px-10 flex items-center justify-between'>
         <Link to='/'>
           <img src={logo} alt='movie logo' width={100} />

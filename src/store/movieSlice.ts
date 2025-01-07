@@ -2,6 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 
 type MovieProps = {
   backdrop_path: string;
+  title?: string;
+  original_name?: string;
+  overview: string;
+  vote_average: number;
+  popularity: number;
 };
 
 export type MovieState = {
